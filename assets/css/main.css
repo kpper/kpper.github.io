@@ -159,7 +159,27 @@ ul, ol { list-style: none; }
 
 .links a:first-child { margin-left: 0; }
 
+/* friends
+/* ================================================= */
+.friend {
+  margin-top: 40px;
+  font-size: 14px;
+}
 
+.friend a {
+  display: inline-block;
+  position: relative;
+  margin-left: 10px;
+  text-decoration: none;
+  border-bottom: 1px dotted;
+  transition: border .3s ease, color .3s ease;
+}
+
+.friend a:hover { border-bottom: 1px solid; }
+
+.friend a:active { top: 1px !important; }
+
+.friend a:first-child { margin-left: 0; }
 /* Location
 /* ================================================= */
 .location {
