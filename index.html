@@ -29,7 +29,6 @@
       <a href="https://github.com/kpper" class="animate-slide-in-down">GitHub</a>
       <a href="https://kpper.github.io" class="animate-slide-in-down">Notes</a>
     </div>
-    
     <div class="location">
       <span class="location-icon animate-slide-in-up">
         <i class="icon icon-map-pin"></i>
@@ -40,8 +39,7 @@
       Navigating to: <span class="relocate-location"></span>...
     </div>
     <div class="friend">
-      <a href="https://github.com/iissnan" class="animate-slide-in-down">Git</a>
-      <a href="http://baidu.com" class="animate-slide-in-down">Note</a>
+      <a href="http://baidu.com" class="animate-slide-in-down">百度一下</a>
     </div>
   </div>
 
@@ -61,7 +59,8 @@
           .then(animateTitle)
           .then(animateQuote)
           .then(animateLinks)
-          .then(animateLocation);
+          .then(animateLocation)
+          .then(animateFriends);
       }
 
       function animateTitle() {
@@ -84,8 +83,18 @@
       }
 
       function animateLinks() {
-        var DELAY_STEP = 200;
+        var DELAY_STEP = 10;
         var elements = $('.links a');
+        var concurrent = $.makeArray(elements)
+          .map(function (element, index) {
+            return animate(element, SLIDE_IN_DOWN, index * DELAY_STEP);
+          });
+
+        return $.when.apply($, concurrent);
+      }
+      function animateFriends() {
+        var DELAY_STEP = 10;
+        var elements = $('.friend a');
         var concurrent = $.makeArray(elements)
           .map(function (element, index) {
             return animate(element, SLIDE_IN_DOWN, index * DELAY_STEP);
