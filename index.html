@@ -18,18 +18,23 @@
       <span class="quote-icon quote-icon-start animate-slide-in-down">
         <i class="icon icon-quotes-left"></i>
       </span>
-      <p class="quote-author animate-slide-in-down">怀瑾握瑜兮,心若芷萱！</p>
-      <p class="quote-author animate-slide-in-down"><em>——序</em></p>
-      <a href="https://kpper.github.io/notes/" class="quote-author animate-slide-in-down">进入我的博客</a>
-      <p class="quote-content animate-slide-in-down">感受Hello World的最大善意</p>
-      <p class="quote-author animate-slide-in-down"><em>欢迎页</em></p>
+      <p class="quote-content animate-slide-in-down">怀瑾握瑜兮,心若芷萱！</p>
+      <p class="quote-content animate-slide-in-down"><em>——序</em></p>
       <span class="quote-icon quote-icon-end animate-slide-in-up">
         <i class="icon icon-quotes-right"></i>
       </span>
       <span class="quote-line quote-line-end animate-slide-in-right"></span>
     </div>
+    <div class="quote">
+      <p class="quote-content animate-slide-in-down"></p>
+      <span class="blog-icon animate-slide-in-up">
+          <i class="icon icon-moon"></i>
+      </span>
+      <a href="https://kpper.coding.me/notes/" class="quote-content animate-slide-in-down">进入我的博客</a>
+      <p class="quote-content animate-slide-in-down"><em></em></p> 
+    </div>
     <div class="links">
-      <!--a href="https://kpper.github.io/notes/" class="animate-slide-in-down">My Notes</a-->    
+      <!--a href="https://kpper.github.io/" class="animate-slide-in-down">My Notes</a-->    
     </div>
     <div class="location">
       <span class="location-icon animate-slide-in-up">
@@ -40,10 +45,17 @@
     <div class="relocating">
       Navigating to: <span class="relocate-location"></span>...
     </div>
-    <div class="friend">
-      <a href="https://github.com/kpper" class="animate-slide-in-down">My GitHub</a>
-      <a href="https://github.com/kpper/kpper_next" class="animate-slide-in-down">Theme On Github</a>
-      <a href="http://baidu.com" class="animate-slide-in-down">百度一下</a>
+    <div class="footer">
+        Copyright &copy;
+        <span itemprop="copyrightYear">2019</span>
+        <span class="with-love">
+            <i class="icon icon-sun"></i>
+        </span>
+        <span class="author" itemprop="copyrightHolder">kpper</span>  
+        <div class="theme-info">
+          Hosted by <a href="https://pages.coding.me/">Coding Pages</a>
+           | Theme on <a href="https://github.com/kpper/kpper_next">Github</a>
+        </div> 
     </div>
   </div>
 
@@ -62,9 +74,9 @@
         $.when()
           .then(animateTitle)
           .then(animateQuote)
-          .then(animateLinks)
+          //.then(animateLinks)
           .then(animateLocation)
-          .then(animateFriends);
+          .then(animateFooter);
       }
 
       function animateTitle() {
@@ -79,11 +91,12 @@
           animate('.quote-icon-end', SLIDE_IN_UP)
         )
           .then(function () {
-            return animate('.quote-content', SLIDE_IN_DOWN);
+            return animate('.blog-icon', SLIDE_IN_UP),
+            animate('.quote-content', SLIDE_IN_DOWN)  
           })
-          .then(function () {
+          /*.then(function () {
             return animate('.quote-author', SLIDE_IN_DOWN);
-          });
+          });*/
       }
 
       function animateLinks() {
@@ -96,9 +109,9 @@
 
         return $.when.apply($, concurrent);
       }
-      function animateFriends() {
+      function animateFooter() {
         var DELAY_STEP = 10;
-        var elements = $('.friend a');
+        var elements = $('.footer a');
         var concurrent = $.makeArray(elements)
           .map(function (element, index) {
             return animate(element, SLIDE_IN_DOWN, index * DELAY_STEP);

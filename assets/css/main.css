@@ -31,7 +31,7 @@ ul, ol { list-style: none; }
 [class^="icon-"], [class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'icomoon' !important;
-  speak: none;
+  /*speak: none;*/
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -136,6 +136,7 @@ ul, ol { list-style: none; }
 
 .quote-author { margin: 10px auto 30px; }
 
+.blog-icon { font-size: 14px; }
 
 /* Links
 /* ================================================= */
@@ -159,17 +160,17 @@ ul, ol { list-style: none; }
 
 .links a:first-child { margin-left: 0; }
 
-/* friends
+/* footer
 /* ================================================= */
-.friend {
+.footer {
   margin-top: 40px;
   font-size: 14px;
 }
 
-.friend a {
+.footer a {
   display: inline-block;
   position: relative;
-  margin-left: 10px;
+  margin-left: 1px;
   text-decoration: none;
   border-bottom: 1px dotted;
   transition: border .3s ease, color .3s ease;
